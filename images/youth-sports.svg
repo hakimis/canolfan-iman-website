@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Youth sports session placeholder">
+  <rect width="800" height="600" fill="#f1ece1"/>
+  <rect x="20" y="20" width="760" height="560" fill="none" stroke="#a3801a" stroke-width="3" stroke-dasharray="10 8" rx="14"/>
+  <g fill="none" stroke="#c9a227" stroke-width="3">
+    <path d="M400 170 a60 60 0 1 0 0.1 0 Z" />
+    <line x1="400" y1="110" x2="400" y2="150" />
+  </g>
+  <text x="400" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#1b4332" text-anchor="middle" font-weight="700">Photo placeholder</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="20" fill="#4b5550" text-anchor="middle">Youth sports session</text>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="15" fill="#4b5550" text-anchor="middle">images/youth-sports.jpg</text>
+</svg>
