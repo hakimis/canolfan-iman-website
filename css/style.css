@@ -504,6 +504,7 @@ textarea { min-height: 140px; resize: vertical; }
 }
 .site-footer .brand-text .name,
 .site-footer .brand-text .subtitle { color: var(--color-text-light); }
+.site-footer p { color: rgba(247,245,239,0.85); }
 .site-footer a:hover { color: var(--color-accent); }
 .footer-links li { margin-bottom: 0.55rem; font-size: 0.92rem; }
 .footer-bottom {

@@ -116,6 +116,9 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector("[data-prayer]")) {
       fetchTimings();
+      // Re-fetch periodically so the "next prayer" highlight stays current
+      // and the date rolls over to tomorrow's real times without a page reload.
+      setInterval(fetchTimings, 30 * 60 * 1000);
     }
   });
 })();

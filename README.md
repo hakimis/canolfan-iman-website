@@ -2,6 +2,8 @@
 
 A static, mobile-responsive website for Canolfan Iman Centre (Llandudno Junction Mosque). Plain HTML/CSS/JS — no build step, no framework, deployable to any static host.
 
+**Current status:** live at [canolfanimancentre.co.uk](https://canolfanimancentre.co.uk), hosted on Vercel, deployed from the GitHub repo [hakimis/canolfan-iman-website](https://github.com/hakimis/canolfan-iman-website). Pushing to the `main` branch auto-redeploys.
+
 ## File structure
 
 ```
@@ -23,15 +25,17 @@ robots.txt            Crawler rules
 
 ## 1. Adding your own photos
 
-Every photo on the site is currently a labelled SVG placeholder (a dashed box telling you exactly what should go there and what filename to use), so nothing looks broken before you add real images.
+Every photo on the site is currently a decorative geometric placeholder (no "missing photo" text — it's designed to look intentional, not broken), so the site looks complete while you gather real photos.
 
-To replace one:
-1. Take/choose your photo and save it as a `.jpg` (or `.png`/`.webp`).
-2. Put it in the `images/` folder using a similar name, e.g. `images/mosque-exterior.jpg`.
+We could not pull real photos automatically: there's no confirmed official Instagram/Facebook account for the centre (only a generic Instagram location-tag page, which isn't something we can or should scrape — those photos aren't verified as the mosque's own, and may include identifiable people who haven't consented to appear on the official site), and there's no usable photo on any mosque directory site either.
+
+To add real photos:
+1. Take/choose your photo (or save a good one from the centre's own camera roll/WhatsApp/Instagram if you post one) as a `.jpg` (or `.png`/`.webp`).
+2. Put it in the `images/` folder, e.g. `images/mosque-exterior.jpg`.
 3. Open the relevant HTML page, find the `<img src="images/mosque-exterior.svg" ...>` tag, and change `src` to your new filename (and update the `alt` text to describe the real photo).
 4. You can then delete the old `.svg` placeholder file.
 
-Placeholder files you'll want to replace: `mosque-exterior.svg`, `mosque-interior.svg`, `mosque-courtyard.svg`, `madrasa.svg`, `womens-circle.svg`, `youth-activities.svg`, `youth-sports.svg`, `youth-trip.svg`, `ramadan-iftar.svg`, `community-support.svg`, `jumuah.svg`, `donate-qr.svg`.
+Placeholder files you'll want to replace: `mosque-exterior.svg`, `mosque-interior.svg`, `mosque-courtyard.svg`, `madrasa.svg`, `womens-circle.svg`, `youth-activities.svg`, `youth-sports.svg`, `youth-trip.svg`, `ramadan-iftar.svg`, `community-support.svg`, `jumuah.svg`, `donate-qr.svg` (replace this last one with a real QR code, see section 4).
 
 Also add a real `images/og-image.jpg` (1200×630px) — a nice exterior or community photo — used when the site is shared on social media and WhatsApp. Until it exists, the `og:image` tag in each page's `<head>` simply won't show a preview image.
 
@@ -51,33 +55,39 @@ If you'd rather not use a third-party provider, you can also just delete the cal
 
 **Calculation method note:** the calculated fallback uses the Muslim World League method (`method=3`) via AlAdhan. If your mosque follows a different convention, open `js/prayer-times.js` and change the `CALC_METHOD` constant near the top — see the comment for the full list of method codes.
 
-## 3. Connecting your contact form
+**Staying accurate over time:** the widget always fetches *today's* date freshly from the visitor's browser clock and re-fetches every 30 minutes, so it self-corrects at midnight (showing the new day's times) without anyone needing to touch the code, and the "next prayer" highlight stays current for anyone who leaves the page open.
 
-The form on `contact.html` is wired up to [Formspree](https://formspree.io), a free service that emails form submissions to you with no backend code required.
+## 3. Connecting your contact and donation forms
 
+Two forms on the site are wired up to [Formspree](https://formspree.io), a free service that emails form submissions straight to your Gmail inbox with no backend code required:
+- The general enquiry form on `contact.html`
+- The "Request Our Bank Details" form on `donate.html` (`#bank-request`) — since we deliberately don't publish bank account details on the public site, this form lets anyone who wants to donate by bank transfer ask for the details by email instead
+
+To activate them:
 1. Go to [formspree.io](https://formspree.io) and create a free account.
 2. Create a new form and verify it with `canolfanimancentre@gmail.com`.
 3. Copy the form endpoint Formspree gives you (looks like `https://formspree.io/f/abcd1234`).
-4. Open `contact.html`, find `<form class="form-grid mt-1" action="https://formspree.io/f/YOUR_FORM_ID" ...>` and replace `YOUR_FORM_ID` with your real endpoint.
+4. Open `contact.html` and `donate.html`, find each `<form ... action="https://formspree.io/f/YOUR_FORM_ID" ...>`, and replace `YOUR_FORM_ID` with your real endpoint. You can use the **same** Formspree form for both (all submissions land in the same inbox either way), or create a second Formspree form if you'd rather keep donation enquiries separate.
 
-Until you do this, visitors can still reach you instantly via the "Email us directly" `mailto:` link further down the same page — that one works immediately, no setup required.
+Until you do this, visitors can still reach you instantly via the "Email us directly" / "Prefer email?" `mailto:` links on both pages — those work immediately, no setup required.
 
 ## 4. Donation link & QR code
 
 On `donate.html`:
 1. Replace the `Donate Now` button's `href="#"` with your real donation link (JustGiving, LaunchGood, PayPal.me, GoFundMe, or your bank's payment page).
 2. Generate a QR code that points to that same link (e.g. via [qr-code-generator.com](https://www.qr-code-generator.com) — free, no account needed), download it as an image, and replace `images/donate-qr.svg` with it (e.g. `images/donate-qr.png`, then update the `<img src>` on the page).
-3. Fill in or remove the bank-transfer card if you do/don't want to publish bank details online.
 
-## 5. Filling in the placeholder text
+Bank transfer details are intentionally **not** published anywhere on the public site — anyone wanting to pay by bank transfer requests the details via the form on the Donate page (see section 3), which is a safer practice than listing account numbers publicly.
 
-A few sections contain bracketed notes like `[Site owner: add ...]` — these mark spots where only you have the real information (founding history, class times, safeguarding contact, etc.). Search each page for "Site owner:" and fill these in before publishing.
+## 5. Filling in remaining details
+
+General-purpose copy is used wherever exact operational details (class days/times, bank details, safeguarding contact, founding year, etc.) weren't available — by design, so nothing on the live site looks unfinished or invites a wrong/outdated fact. Search each page for "Site owner:" (inside HTML comments, not visible to visitors) for technical setup notes. When you have the real specifics, just edit the relevant paragraph directly — no bracketed placeholders to hunt for.
 
 ## 6. Before you go live: update placeholder URLs
 
 Every page currently uses `https://YOUR-DOMAIN-HERE/` in `<link rel="canonical">`, Open Graph tags, and the JSON-LD structured data, plus `sitemap.xml` and `robots.txt`. Once you know your real domain (see deployment below), do a find-and-replace across all files: `YOUR-DOMAIN-HERE` → your actual domain (e.g. `canolfanimancentre.co.uk`).
 
-Also replace the social placeholders `https://www.instagram.com/REPLACE_ME`, `https://www.facebook.com/REPLACE_ME`, and `https://www.google.com/maps/place/REPLACE_ME` (footer of every page, plus the JSON-LD `sameAs` list on `index.html`) with your real profile links. Linking your real Google Business Profile here especially helps local SEO.
+The footer's only social icon currently links to a real, working Google Maps search for the centre's address — no Instagram/Facebook icons are shown since there's no confirmed official account yet. If you create one, just add a matching `<a>` link (copy the Maps icon's markup in the footer of any page) and add it to the JSON-LD `sameAs` list in `index.html`.
 
 ## 7. Deploying to a static host
 
@@ -108,7 +118,7 @@ Any static host will work. Two easy free options:
 To help local search ("mosque Llandudno Junction", "masjid North Wales"):
 1. Claim/create a [Google Business Profile](https://business.google.com) using the exact same Name, Address, and Phone as on this website (consistency matters for ranking).
 2. Add your website URL once live, opening hours, and photos.
-3. Link your Google Maps profile URL into the footer `sameAs` placeholders described in step 6.
+3. Once you have your Google Business Profile URL, you can add it alongside the Maps link in the JSON-LD `sameAs` list in `index.html`.
 
 ## Accessibility & performance notes
 

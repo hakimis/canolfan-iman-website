@@ -1,11 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Donation QR code placeholder">
-  <rect width="800" height="600" fill="#f1ece1"/>
-  <rect x="20" y="20" width="760" height="560" fill="none" stroke="#a3801a" stroke-width="3" stroke-dasharray="10 8" rx="14"/>
-  <g fill="none" stroke="#c9a227" stroke-width="3">
-    <path d="M400 170 a60 60 0 1 0 0.1 0 Z" />
-    <line x1="400" y1="110" x2="400" y2="150" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="QR code placeholder — replace with your real donation QR code">
+  <rect width="200" height="200" fill="#ffffff"/>
+  <rect x="6" y="6" width="188" height="188" fill="none" stroke="#e2dccb" stroke-width="2"/>
+
+  <!-- finder patterns (corner squares), styled like a real QR code -->
+  <g fill="#1b4332">
+    <rect x="18" y="18" width="36" height="36"/>
+    <rect x="146" y="18" width="36" height="36"/>
+    <rect x="18" y="146" width="36" height="36"/>
   </g>
-  <text x="400" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#1b4332" text-anchor="middle" font-weight="700">Photo placeholder</text>
-  <text x="400" y="370" font-family="Arial, sans-serif" font-size="20" fill="#4b5550" text-anchor="middle">Donation QR code</text>
-  <text x="400" y="410" font-family="Arial, sans-serif" font-size="15" fill="#4b5550" text-anchor="middle">images/donate-qr.jpg</text>
+  <g fill="#ffffff">
+    <rect x="26" y="26" width="20" height="20"/>
+    <rect x="154" y="26" width="20" height="20"/>
+    <rect x="26" y="154" width="20" height="20"/>
+  </g>
+  <g fill="#c9a227">
+    <rect x="32" y="32" width="8" height="8"/>
+    <rect x="160" y="32" width="8" height="8"/>
+    <rect x="32" y="160" width="8" height="8"/>
+  </g>
+
+  <!-- scattered data modules for texture -->
+  <g fill="#1b4332" opacity="0.85">
+    <rect x="70" y="22" width="8" height="8"/>
+    <rect x="86" y="22" width="8" height="8"/>
+    <rect x="102" y="30" width="8" height="8"/>
+    <rect x="118" y="22" width="8" height="8"/>
+    <rect x="70" y="38" width="8" height="8"/>
+    <rect x="94" y="46" width="8" height="8"/>
+    <rect x="110" y="46" width="8" height="8"/>
+    <rect x="126" y="38" width="8" height="8"/>
+    <rect x="22" y="70" width="8" height="8"/>
+    <rect x="22" y="86" width="8" height="8"/>
+    <rect x="38" y="94" width="8" height="8"/>
+    <rect x="22" y="102" width="8" height="8"/>
+    <rect x="38" y="110" width="8" height="8"/>
+    <rect x="70" y="70" width="8" height="8"/>
+    <rect x="86" y="78" width="8" height="8"/>
+    <rect x="102" y="70" width="8" height="8"/>
+    <rect x="118" y="86" width="8" height="8"/>
+    <rect x="134" y="70" width="8" height="8"/>
+    <rect x="70" y="94" width="8" height="8"/>
+    <rect x="94" y="102" width="8" height="8"/>
+    <rect x="118" y="110" width="8" height="8"/>
+    <rect x="78" y="118" width="8" height="8"/>
+    <rect x="102" y="126" width="8" height="8"/>
+    <rect x="134" y="118" width="8" height="8"/>
+    <rect x="150" y="70" width="8" height="8"/>
+    <rect x="166" y="86" width="8" height="8"/>
+    <rect x="150" y="102" width="8" height="8"/>
+    <rect x="166" y="118" width="8" height="8"/>
+    <rect x="150" y="134" width="8" height="8"/>
+    <rect x="70" y="150" width="8" height="8"/>
+    <rect x="94" y="158" width="8" height="8"/>
+    <rect x="118" y="150" width="8" height="8"/>
+    <rect x="134" y="166" width="8" height="8"/>
+    <rect x="166" y="150" width="8" height="8"/>
+  </g>
 </svg>
