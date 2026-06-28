@@ -300,6 +300,16 @@ section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
   box-shadow: var(--shadow-sm);
   margin-bottom: 2rem;
 }
+.photo-credit {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: -1.6rem;
+  margin-bottom: 1.6rem;
+  padding-right: 0.25rem;
+}
+.photo-credit a { text-decoration: underline; }
 .section-head { max-width: 60ch; margin-bottom: 2.25rem; }
 .section-head .eyebrow {
   text-transform: uppercase;
