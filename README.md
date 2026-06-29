@@ -10,9 +10,9 @@ A static, mobile-responsive website for Canolfan Iman Centre (Llandudno Junction
 index.html          Home
 prayer-times.html    Prayer Times
 about.html            About Us
-services.html         Services (worship, madrasa, community, youth)
+services.html         Services (worship, community support)
 ramadan.html          Ramadan
-youth.html            Youth Activities
+youth.html            Youth Activities (unlinked/noindex — not yet ready to publish)
 donate.html           Donate / Support
 contact.html          Contact & Location
 css/style.css         All styling
@@ -83,9 +83,9 @@ Bank transfer details are intentionally **not** published anywhere on the public
 
 General-purpose copy is used wherever exact operational details (class days/times, bank details, safeguarding contact, founding year, etc.) weren't available — by design, so nothing on the live site looks unfinished or invites a wrong/outdated fact. Search each page for "Site owner:" (inside HTML comments, not visible to visitors) for technical setup notes. When you have the real specifics, just edit the relevant paragraph directly — no bracketed placeholders to hunt for.
 
-## 6. Before you go live: update placeholder URLs
+## 6. Domain
 
-Every page currently uses `https://YOUR-DOMAIN-HERE/` in `<link rel="canonical">`, Open Graph tags, and the JSON-LD structured data, plus `sitemap.xml` and `robots.txt`. Once you know your real domain (see deployment below), do a find-and-replace across all files: `YOUR-DOMAIN-HERE` → your actual domain (e.g. `canolfanimancentre.co.uk`).
+The site already uses the real `canolfanimancentre.co.uk` domain throughout (`<link rel="canonical">`, Open Graph tags, JSON-LD, `sitemap.xml`, `robots.txt`). If you ever move to a different domain, find-and-replace `canolfanimancentre.co.uk` across all files.
 
 The footer's only social icon currently links to a real, working Google Maps search for the centre's address — no Instagram/Facebook icons are shown since there's no confirmed official account yet. If you create one, just add a matching `<a>` link (copy the Maps icon's markup in the footer of any page) and add it to the JSON-LD `sameAs` list in `index.html`.
 
