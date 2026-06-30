@@ -165,19 +165,23 @@ textarea:focus-visible {
   align-items: center;
   gap: 0.7rem;
 }
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.2rem;
+.brand-logo-nav {
+  height: 52px;
+  width: auto;
   flex-shrink: 0;
+  display: block;
+}
+.footer-logo {
+  height: 90px;
+  width: auto;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+.hero-logo {
+  height: 220px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
 }
 .brand-text { line-height: 1.2; }
 .brand-text .name {
@@ -259,8 +263,22 @@ textarea:focus-visible {
 .hero .container {
   position: relative;
   padding-block: clamp(3rem, 8vw, 6rem);
+}
+.hero-split {
   display: grid;
+  grid-template-columns: 1fr auto;
   gap: 2.5rem;
+  align-items: center;
+}
+.hero-text { display: flex; flex-direction: column; gap: 0; }
+.hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-logo-wrap { display: none; }
 }
 .hero-bismillah {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
